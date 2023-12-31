@@ -1,0 +1,177 @@
+/* Branding / Logo */
+
+@import url("../webfonts.css");
+
+body {
+  --outer-padding: 10px;
+  --background-aspect-ratio: calc(2500 / 1667);
+  --header-font-size: 60px;
+  --header-font-size: min(60px, (100vw - 22px) / 5.1151);
+  --header-bubble-size: calc(5.1151 * var(--header-font-size));
+}
+
+.branding-logo-container {
+  display: inline-block;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  background-color: rgba(128,128,128,0.6);
+  text-align: center;
+  padding-top: calc(1.35598333333 * var(--header-font-size));
+  border: 1px solid rgba(180,180,180,0.6);
+  box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.9);
+  /* Positioning */
+  position: absolute;
+  top: max(10px, calc(0.5 * (100vh - var(--header-bubble-size))));
+  left: calc((100vw - (var(--header-bubble-size) + 10px)) / 2);
+  width: var(--header-bubble-size);
+  height: var(--header-bubble-size);
+  transition: left 0.3s ease-in-out;
+}
+
+@media (min-width: 576px) {
+  .branding-logo-container {
+    left: max(var(--outer-padding), calc(15vw - var(--header-bubble-size) / 2));
+  }
+}
+
+.branding-logo {
+  display: block;
+  color: #7a0004;
+  text-shadow: 1px 1px 0px #7a000480, 0px 0px 0px #df172f80, 0px 0px 8px #ffffffff;
+  padding-left: 0.2em;
+  padding-right: 0.6em;
+  position: relative;
+  font-size: var(--header-font-size);
+}
+
+
+.branding-logo-tanz {
+  font-family: "Playfair Display";
+  font-weight: normal;
+}
+
+.branding-logo-t {
+  font-size: 1.2em; /* 24px / 24px = 1 */
+  letter-spacing: -0.17361111111em;
+}
+
+.branding-logo-anz {
+  font-size: 0.75em; /* 19px / 24px = 0.79166666666 */
+}
+
+.branding-logo-gefuehl {
+  font-family: "Pinyon Script";
+  font-weight: normal;
+}
+
+.branding-logo-gefuehl {
+  font-size: 1.08333333333em; /* 26px / 24px = 1.08333333333 */
+  font-size: 1.18em;
+}
+.compact-nav-items {
+  display: inline-block;
+  list-style: none;
+  text-align: left;
+  padding-left: 0;
+  text-align: center;
+}
+
+.compact-nav-items li {
+  margin-left: 0;
+  display: inline-block;
+}
+
+.compact-nav-items li:not(:first-child):not(.break ~ li)::before {
+  display: inline-block;
+  content: "⬩";
+  position: relative;
+  padding: 0.2em 0.05em;
+  margin-bottom: 0.2em;
+  vertical-align: top;
+}
+
+.compact-nav-items li a, .compact-nav-items li a:visited, .compact-nav-items li a:active {
+  color: #111;
+  text-decoration: none;
+  margin-left: 0;
+  position: relative;
+  margin-bottom: 0.2em;
+  display: inline-block;
+  font-family: "Playfair Display";
+  font-weight: 600;
+  padding: 0.2em 0;
+}
+
+.compact-nav-items li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.compact-nav-items li a:hover::after,
+.compact-nav-items li a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+.compact-nav-items li a {
+  overflow: hidden;
+}
+
+.compact-nav-items li ::after {
+  opacity 1;
+  transform: translate3d(-100%, 0, 0);
+}
+
+.compact-nav-items li a:hover::after,
+.compact-nav-items li a:focus::after{
+  transform: translate3d(0, 0, 0);
+}
+
+/* Background image */
+
+html, body {
+  height: 100%;
+}
+
+.hero-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(https://github.com/cr7pt0gr4ph7/tanzgefuehl.de/blob/main/assets/img/JumpIntoAir-Red-Full.jpg?raw=true);
+  background-repeat: no-repeat;
+  container-type: size;
+  background-position: 51% 10%;
+  background-size: cover;
+  z-index: -10
+}
+
+.hero-container::after {
+  display: block;
+}
+
+/* Main content */
+
+.first-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+main {
+  box-shadow:
+    0 32px 30px 30px black,
+    inset 0 10px 5px -5px black;
+  box-shadow:
+    0 10px 5px -5px black,
+    inset 0 10px 5px -5px black;
+  padding-top: 1em;
+}
