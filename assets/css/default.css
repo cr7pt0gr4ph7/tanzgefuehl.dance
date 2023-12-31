@@ -146,7 +146,7 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url(https://github.com/cr7pt0gr4ph7/tanzgefuehl.de/blob/main/assets/img/JumpIntoAir-Red-Full.jpg?raw=true);
+  background-image: url("../assets/img/JumpIntoAir-Red-Full.jpg");
   background-repeat: no-repeat;
   container-type: size;
   background-position: 51% 10%;
