@@ -174,4 +174,5 @@ main {
     0 10px 5px -5px black,
     inset 0 10px 5px -5px black;
   padding-top: 1em;
+  padding-bottom: 1em;
 }
