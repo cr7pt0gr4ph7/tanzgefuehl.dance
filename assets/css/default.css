@@ -1,6 +1,6 @@
 /* Branding / Logo */
 
-@import url("../webfonts.css");
+@import url("webfonts.css");
 
 body {
   --outer-padding: 10px;
