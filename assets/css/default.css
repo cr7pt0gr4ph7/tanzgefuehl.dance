@@ -194,8 +194,8 @@ body {
 
 main {
   box-shadow:
-    0 10px 5px -5px black, inse
-    0 10px 5px -5px black;
+    0 10px 5px -5px black,
+    inset 0 10px 5px -5px black;
   padding-top: 1em;
   padding-bottom: 1em;
 }
