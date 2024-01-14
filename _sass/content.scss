@@ -19,3 +19,7 @@ main {
 main strong {
     color: #7a0004;
 }
+
+main strong.neutral {
+    color: inherit;
+}
