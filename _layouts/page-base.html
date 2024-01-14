@@ -43,7 +43,9 @@ layout: none
       {%- endif -%}
     </header>
     {{ content }}
-    {%- include footer.html -%}
+    {%- if page.show_footer -%}
+      {%- include footer.html -%}
+    {%- endif -%}
     <style type="text/css">
       a.mail-link span[aria-hidden="true"] {
         display: none;
