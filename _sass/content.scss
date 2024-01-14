@@ -13,4 +13,9 @@ main {
     clip-path: inset(-20px 0px 0px 0px);
     padding-top: 1em;
     padding-bottom: 1em;
+    min-height: 90vh;
+}
+
+main strong {
+    color: #7a0004;
 }
