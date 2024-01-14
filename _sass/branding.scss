@@ -1,0 +1,96 @@
+/* Branding / Logo */
+
+body {
+    --outer-padding: 10px;
+    --background-native-width: 2500;
+    --background-native-height: 1667;
+    --background-aspect-ratio: calc(var(--background-native-width) / var(--background-native-height));
+    --background-scale: max(100vw / var(--background-native-width),
+            100vh / var(--background-native-height));
+    --header-font-size: 60px;
+    --header-font-size: min(60px, (100vw - 22px) / 5.1151);
+    --header-bubble-size: calc(5.1151 * var(--header-font-size));
+}
+
+.branding-logo-container {
+    display: inline-block;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    background-color: rgba(128, 128, 128, 0.6);
+    text-align: center;
+    padding-top: calc(1.35598333333 * var(--header-font-size));
+    border: 1px solid rgba(180, 180, 180, 0.6);
+    box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.9);
+    /* Positioning */
+    position: absolute;
+    top: max(10px, calc(0.5 * (100vh - var(--header-bubble-size))));
+    left: calc((100vw - (var(--header-bubble-size) + 10px)) / 2);
+    width: var(--header-bubble-size);
+    height: var(--header-bubble-size);
+    transition: left 0.3s ease-in-out, top 0.4s ease-in-out;
+}
+
+@media (min-width: 576px) {
+    .branding-logo-container {
+        top: max(10px, var(--background-scale) * 88);
+        left: max(var(--outer-padding), calc(15vw - var(--header-bubble-size) / 2));
+    }
+}
+
+.branding-logo {
+    display: block;
+    color: #7a0004;
+    padding-left: 0.2em;
+    padding-right: 0.6em;
+    position: relative;
+    font-size: var(--header-font-size);
+}
+
+.branding-logo a,
+.branding-logo>span {
+    text-shadow:
+        1px 1px 0px #7a000480,
+        0px 0px 0px #df172f80,
+        0px 0px 8px #ffffffff;
+    transition: text-shadow 0.6s ease-in-out;
+}
+
+.branding-logo a:hover {
+    text-shadow:
+        1px 1px 0px #7a000480,
+        0px 0px 0px #df172f80,
+        0px 0px 8px #ffffffff,
+        0px 0px 8px #ffffffff,
+        0px 0px 8px #ffffff77;
+}
+
+.branding-logo a {
+    text-decoration: none;
+    color: inherit;
+    padding-right: 0.4em;
+    margin-right: -0.4em;
+}
+
+.branding-logo-tanz {
+    font-family: "Playfair Display";
+    font-weight: normal;
+}
+
+.branding-logo-t {
+    font-size: 1.2em;
+    letter-spacing: -0.17361111111em;
+}
+
+.branding-logo-anz {
+    font-size: 0.75em;
+}
+
+.branding-logo-gefuehl {
+    font-family: "Pinyon Script";
+    font-weight: normal;
+}
+
+.branding-logo-gefuehl {
+    font-size: 1.08333333333em;
+    font-size: 1.18em;
+}
