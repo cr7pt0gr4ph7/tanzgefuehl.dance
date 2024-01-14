@@ -1,0 +1,58 @@
+/* Bottom link */
+
+.hero-bottom-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    text-align: center;
+}
+
+.hero-bottom-link a {
+    width: 100%;
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding-top: 2rem;
+}
+
+.hero-bottom-link a::before {
+    display: block;
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, #000000aa, transparent);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: 0 2rem;
+    opacity: 0;
+    transition: opacity 0.7s ease-out, background-position-y 0.7s ease-out;
+}
+
+.hero-bottom-link a:hover::before {
+    background-position: 0 0;
+    opacity: 0.8;
+}
+
+.hero-bottom-link a .chevron-down {
+    opacity: 0.5;
+    transition: 0.3s ease-in-out;
+}
+
+.hero-bottom-link a:hover .chevron-down {
+    opacity: 0.9;
+}
+
+.chevron-down {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2016%2016%27%20fill%3D%27%23fff%27%3E%3Cpath%20d%3D%27m%201.6461311%2C4.6458689%20a%200.5%2C0.5%200%200%201%200.708%2C0%20l%205.646%2C5.6470001%205.6459999%2C-5.6470001%20a%200.5006316%2C0.5006316%200%200%201%200.708%2C0.708%20L%208.3541311%2C11.353869%20a%200.5%2C0.5%200%200%201%20-0.708%2C0%20l%20-6%2C-6.0000001%20a%200.5%2C0.5%200%200%201%200%2C-0.708%20z%27%20%2F%3E%3C%2Fsvg%3E");
+}

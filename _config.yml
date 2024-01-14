@@ -38,6 +38,7 @@ defaults:
     values:
       lang: de
       locale: de_DE
+      show_hero_bottom_link: false
 
 # Exclude from processing.
 # The following items will not be processed, by default.

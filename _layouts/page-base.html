@@ -35,6 +35,9 @@ layout: none
           <li><a href="{{ site.baseurl }}/datenschutz">Datenschutz</a></li>
         </ul>
       </div>
+      {%- if page.show_hero_bottom_link -%}
+        {%- include components/hero/bottom-link.html -%}
+      {%- endif -%}
     </header>
     {{ content }}
     <style type="text/css">
