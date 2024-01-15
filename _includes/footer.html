@@ -28,7 +28,7 @@
             return;
         }
 
-        var facts = container.querySelectorAll(".fact");
+        var facts = container.querySelectorAll(".fact:not(.hidden)");
         if (facts.length > 0) {
             var randomIndex = Math.floor(Math.random() * facts.length);
             facts[randomIndex].classList.add("active");

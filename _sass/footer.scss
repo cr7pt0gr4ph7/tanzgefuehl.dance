@@ -23,3 +23,23 @@ footer .nav-link:hover {
 .did-you-know .fact.active {
     display: block;
 }
+
+.did-you-know {
+    .fact {
+        display: none;
+
+        .more {
+            display: none;
+        }
+
+        a {
+            color: inherit;
+            font-weight: 500;
+            text-decoration: none;
+        
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
