@@ -3,7 +3,7 @@ layout: none
 ---
 <html lang="{{ page.lang }}">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:title" content="{{ site.title }}" />
@@ -17,45 +17,15 @@ layout: none
     <link href="{{ site.baseurl }}/assets/css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link href="{{ site.baseurl }}/assets/css/default.css" rel="stylesheet" />
-  </head>
+</head>
 
-  <body>
-    <header class="first-section">
-      <a href="#-" tabindex="1" class="header-skip-link visually-hidden-focusable">Zum Inhalt springen</a>
-      <div class="hero-container"></div>
-      <div class="branding-logo-container">
-        <h1 class="branding-logo">
-          <a href="/" aria-label="Tanzgefühl">
-            <span aria-hidden="true" class="branding-logo-tanz"><span class="branding-logo-t">T</span><span class="branding-logo-anz">anz</span></span><span aria-hidden="true" class="branding-logo-gefuehl">ge<span aria-hidden="true" class="branding-logo-fuehl">fühl</span>
-            </span>
-          </a>
-        </h1>
-        <ul class="compact-nav-items">
-          <li><a class="mai&#x006C;-link" href="mai&#x006C;to&#x003A;%63%6F%6E%74%61%63%74REMOVETHISTEXTBEFORESENDING&#64;%74%61%6E%7A%67%65%66%C3%BC%68%6C&#46;%64%61%6E%63%65?subject=Allgemeine+Anfrage">Kontakt</a></li>
-          <li><a href="{{ site.baseurl }}/impressum#-">Impressum</a></li>
-          <li><a href="{{ site.baseurl }}/datenschutz#-">Datenschutz</a></li>
-          <li><a href="{{ site.baseurl }}/privatstunden#-">Privatstunden</a></li>
-          <li><a href="{{ site.baseurl }}/workshops#-">Workshops</a></li>
-        </ul>
-      </div>
-      {%- if page.show_hero_bottom_link -%}
-        {%- include components/hero/bottom-link.html -%}
-      {%- endif -%}
-    </header>
+<body>
+    {%- include header.html -%}
     {{ content }}
     {%- if page.show_footer -%}
-      {%- include footer.html -%}
+    {%- include footer.html -%}
     {%- endif -%}
-    <style type="text/css">
-      a.mail-link span[aria-hidden="true"] {
-        display: none;
-      }
-    </style>
-    <script type="text/javascript">
-      document.querySelectorAll("a.mail-link").forEach(a => {
-        a.href = a.href.replace("REMOVETHISTEXTBEFORESENDING", "");
-      });
-    </script>
-  </body>
+    {%- include utilities/mail-link-fixup.html -%}
+</body>
 
 </html>
