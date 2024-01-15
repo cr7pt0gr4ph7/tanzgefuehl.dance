@@ -7,44 +7,44 @@
     bottom: 0;
     max-width: 100%;
     text-align: center;
-}
 
-.hero-bottom-link a {
-    width: 100%;
-    display: block;
-    color: black;
-    text-decoration: none;
-    padding-top: 2rem;
-}
+    a {
+        width: 100%;
+        display: block;
+        color: black;
+        text-decoration: none;
+        padding-top: 2rem;
 
-.hero-bottom-link a::before {
-    display: block;
-    position: absolute;
-    content: "";
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, #000000aa, transparent);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: 0 2rem;
-    opacity: 0;
-    transition: opacity 0.7s ease-out, background-position-y 0.7s ease-out;
-}
+        &::before {
+            display: block;
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, #000000aa, transparent);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 0 2rem;
+            opacity: 0;
+            transition: opacity 0.7s ease-out, background-position-y 0.7s ease-out;
+        }
 
-.hero-bottom-link a:hover::before {
-    background-position: 0 0;
-    opacity: 0.8;
-}
+        &:hover::before {
+            background-position: 0 0;
+            opacity: 0.8;
+        }
 
-.hero-bottom-link a .chevron-down {
-    opacity: 0.5;
-    transition: 0.3s ease-in-out;
-}
+        .chevron-down {
+            opacity: 0.5;
+            transition: 0.3s ease-in-out;
+        }
 
-.hero-bottom-link a:hover .chevron-down {
-    opacity: 0.9;
+        &:hover .chevron-down {
+            opacity: 0.9;
+        }
+    }
 }
 
 .chevron-down {
