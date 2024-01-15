@@ -13,18 +13,12 @@ footer .nav-link:hover {
 
 .did-you-know {
     padding-right: 3rem;
-}
 
-.did-you-know .fact {
-    display: none;
-}
+    &.not-initialized .fact:first-child,
+    .fact.active {
+        display: block;
+    }
 
-.did-you-know.not-initialized .fact:first-child,
-.did-you-know .fact.active {
-    display: block;
-}
-
-.did-you-know {
     .fact {
         display: none;
 
