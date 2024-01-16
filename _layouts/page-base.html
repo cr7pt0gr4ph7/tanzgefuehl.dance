@@ -3,16 +3,22 @@ layout: none
 ---
 <html lang="{{ page.lang }}">
 
+{%- if page.title == "" -%}
+    {%- assign _title = site.title -%}
+{%- else -%}
+    {%- assign _title = site.title | prepend: " | " | prepend: page.title -%}
+{%- endif -%}
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="{{ site.title }}" />
+    <meta property="og:title" content="{{ _title }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/" />
     <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/SharePreview.jpg" />
     <meta property="og:locale" content="{{ page.locale }}" />
     <meta property="twitter:card" content="summary_large_image" />
-    <title>Tanzgefühl - Tanzunterricht mit Begeisterung</title>
+    <title>{{ _title }}</title>
     <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/favicon.ico" />
     <link href="{{ site.baseurl }}/assets/css/bootstrap-icons.min.css" rel="stylesheet" crossorigin="anonymous" />
     <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
