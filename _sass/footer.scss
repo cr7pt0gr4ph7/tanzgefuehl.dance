@@ -1,14 +1,14 @@
 /* Footer */
 
-footer {
+.page-footer {
     padding-top: 1em;
     padding-bottom: 1em;
     background-color: var(--bs-body-color);
     color: #ffffff;
-}
 
-footer .nav-link:hover {
-    text-decoration: underline;
+    .nav-link:hover {
+        text-decoration: underline;
+    }
 }
 
 .did-you-know {
