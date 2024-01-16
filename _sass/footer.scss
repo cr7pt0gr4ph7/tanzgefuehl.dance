@@ -13,6 +13,7 @@
 
 .did-you-know {
     padding-right: 3rem;
+    min-height: 10lh;
 
     &.not-initialized .fact:first-child,
     .fact.active {

@@ -1,35 +1,46 @@
 <script type="text/javascript">
     (function () {
-        var container = document.querySelector(".did-you-know");
-        if (!container) {
-            return;
+        function updateFact() {
+            var container = document.querySelector(".did-you-know");
+            if (!container) {
+                return;
+            }
+
+            var facts = container.querySelectorAll(".fact:not(.hidden)");
+            var previouslySelectedFacts = container.querySelectorAll(".fact.active");
+            if (facts.length > 0) {
+                var selectedFactIndex = null;
+                if (sessionStorage) {
+                    /*
+                    * If the browser supports HTML5 session storage, use that to ensure
+                    * that random facts are not repeated too much.
+                    */
+                    var lastFactIndex = Number.parseInt(sessionStorage.getItem("last_random_fact_index"), 10);
+                    if (!Number.isNaN(lastFactIndex)) {
+                        selectedFactIndex = (lastFactIndex + 1) % facts.length;
+                    }
+                }
+
+                if (!selectedFactIndex) {
+                    /* If not supported or not yet set, select a random fact */
+                    selectedFactIndex = Math.floor(Math.random() * facts.length);
+                }
+
+                if (sessionStorage) {
+                    sessionStorage.setItem("last_random_fact_index", selectedFactIndex.toString("10"));
+                }
+
+                previouslySelectedFacts.forEach(prev => prev.classList.remove("active"));
+                facts[selectedFactIndex].classList.add("active");
+                container.classList.remove("not-initialized");
+            }
         }
 
-        var facts = container.querySelectorAll(".fact:not(.hidden)");
-        if (facts.length > 0) {
-            var selectedFactIndex = null;
-            if (sessionStorage) {
-                /*
-                 * If the browser supports HTML5 session storage, use that to ensure
-                 * that random facts are not repeated too much.
-                 */
-                var lastFactIndex = Number.parseInt(sessionStorage.getItem("last_random_fact_index"), 10);
-                if (!Number.isNaN(lastFactIndex)) {
-                    selectedFactIndex = (lastFactIndex + 1) % facts.length;
-                }
-            }
+        updateFact();
 
-            if (!selectedFactIndex) {
-                /* If not supported or not yet set, select a random fact */
-                selectedFactIndex = Math.floor(Math.random() * facts.length);
-            }
-
-            if (sessionStorage) {
-                sessionStorage.setItem("last_random_fact_index", selectedFactIndex.toString("10"));
-            }
-
-            facts[selectedFactIndex].classList.add("active");
-            container.classList.remove("not-initialized");
+        var updateIntervalInSeconds = 60; /* seconds */
+        if (updateIntervalInSeconds && updateIntervalInSeconds > 0) {
+            setInterval(e => updateFact(), updateIntervalInSeconds * 1000);
         }
     })();
 </script>
