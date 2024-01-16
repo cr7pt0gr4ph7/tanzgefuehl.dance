@@ -1,9 +1,20 @@
 <script type="text/javascript">
     (function () {
-        function updateFact() {
+        function updateFact(isFirstUpdate) {
             var container = document.querySelector(".did-you-know");
             if (!container) {
                 return;
+            }
+
+            if (!isFirstUpdate) {
+                /*
+                 * If there is a fact already active, and the keyboard focus or the mouse is positioned
+                 * within it, we skip updating the fact to be more in line with user expectations.
+                 */
+                var currentlyFocused = container.querySelector(".fact.active:hover, .fact.active:focus, .fact.active:focus-within");
+                if (currentlyFocused || container.matches(".did-you-know:hover, .did-you-know:focus-within")) {
+                   return;
+                }
             }
 
             var facts = container.querySelectorAll(".fact:not(.hidden)");
@@ -36,11 +47,11 @@
             }
         }
 
-        updateFact();
+        updateFact(true);
 
-        var updateIntervalInSeconds = 60; /* seconds */
+        var updateIntervalInSeconds = 60; /* second1s */
         if (updateIntervalInSeconds && updateIntervalInSeconds > 0) {
-            setInterval(e => updateFact(), updateIntervalInSeconds * 1000);
+            setInterval(e => updateFact(false), updateIntervalInSeconds * 1000);
         }
     })();
 </script>
