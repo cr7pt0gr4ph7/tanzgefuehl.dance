@@ -2,59 +2,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <div class="did-you-know not-initialized">
-                    {%- include components/random-facts/facts.html -%}
-                </div>
+                {%- include components/random-facts/container.html -%}
             </div>
             <div class="col-md-2">
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a class="nav-link p-0 text-light"
-                            href="/privatstunden#-">Privatstunden</a></li>
-                    <li class="nav-item mb-2"><a class="nav-link p-0 text-light" href="/workshops#-">Workshops</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link p-0 text-light" href="{% link privatstunden.html %}#-">Privatstunden</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link p-0 text-light" href="{% link workshops.html %}#-">Workshops</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a class="nav-link p-0 text-light" href="/datenschutz#-">Datenschutz</a>
-                    </li>
-                    <li class="nav-item mb-2"><a class="nav-link p-0 text-light" href="/impressum#-">Impressum</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link p-0 text-light" href="{% link datenschutz.html %}#-">Datenschutz</a></li>
+                    <li class="nav-item mb-2"><a class="nav-link p-0 text-light" href="{% link impressum.html %}#-">Impressum</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
-<script type="text/javascript">
-    (function () {
-        var container = document.querySelector(".did-you-know");
-        if (!container) {
-            return;
-        }
-
-        var facts = container.querySelectorAll(".fact:not(.hidden)");
-        if (facts.length > 0) {
-            var selectedFactIndex = null;
-            if (sessionStorage) {
-                /*
-                 * If the browser supports HTML5 session storage, use that to ensure
-                 * that random facts are not repeated too much.
-                 */
-                var lastFactIndex = Number.parseInt(sessionStorage.getItem("last_random_fact_index"), 10);
-                if (!Number.isNaN(lastFactIndex)) {
-                    selectedFactIndex = (lastFactIndex + 1) % facts.length; 
-                }
-            }
-
-            if(!selectedFactIndex) {
-                /* If not supported or not yet set, select a random fact */
-                selectedFactIndex = Math.floor(Math.random() * facts.length);
-            }
-
-            if(sessionStorage) {
-                sessionStorage.setItem("last_random_fact_index", selectedFactIndex.toString("10"));
-            }
-
-            facts[selectedFactIndex].classList.add("active");
-            container.classList.remove("not-initialized");
-        }
-    })();
-</script>
+{%- include components/random-facts/script.html -%}
