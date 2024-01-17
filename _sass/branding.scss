@@ -46,6 +46,21 @@ body {
     font-size: var(--header-font-size);
 }
 
+.branding-logo.branding-logo-inline {
+  display: inline-block;
+  padding-left: 0.2em;
+  padding-right: 0.4em;
+}
+
+.branding-logo-container .branding-logo {
+  display: block;
+  color: #7a0004;
+  padding-left: 0.2em;
+  padding-right: 0.6em;
+  position: relative;
+  font-size: var(--header-font-size);
+}
+
 .branding-logo a,
 .branding-logo>span {
     text-shadow:
