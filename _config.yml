@@ -40,6 +40,7 @@ defaults:
       locale: de_DE
       show_hero_bottom_link: false
       show_footer: true
+      scroll_to_default_anchor: true
 
 # Exclude from processing.
 # The following items will not be processed, by default.

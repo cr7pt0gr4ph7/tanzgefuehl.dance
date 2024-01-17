@@ -1,7 +1,7 @@
 <script type="text/javascript">
     (function () {
-        var disableAutoScroll = false;
-        if (disableAutoScroll) {
+        var enableAutoScroll = {{ page.scroll_to_default_anchor | default: "false" }};
+        if (!enableAutoScroll) {
             /* Auto-scroll has been disabled statically. */
             console.debug("Auto-scroll aborted: Auto-scrolling has been disabled via configuration.")
             return;
