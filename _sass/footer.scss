@@ -9,6 +9,11 @@
     .nav-link:hover {
         text-decoration: underline;
     }
+
+    .copyright-hint {
+        color: #bbbbbb;
+        font-size: 0.8rem;
+    }
 }
 
 .did-you-know {
@@ -22,6 +27,23 @@
 
     .fact {
         display: none;
+
+        h6 {
+            &:hover::after,
+            &:hover a {
+                content: ' #';
+                cursor: pointer;
+                font-size: 1.1em;
+                line-height: 1rem;
+                color: var(--bs-primary);
+                position: relative;
+                top: 1px;
+
+                &:hover {
+                    color: #ffffff;
+                }
+            }
+        }
 
         .more {
             display: none;
