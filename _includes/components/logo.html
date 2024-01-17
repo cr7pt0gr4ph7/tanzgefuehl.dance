@@ -3,7 +3,7 @@
 <span class="{{ include.class | default: " branding-logo" }}" aria-label="Tanzgefühl">
 {%- endif -%}
     <span aria-hidden="true" class="branding-logo-tanz"><span class="branding-logo-t">T</span><span class="branding-logo-anz">anz</span></span><span aria-hidden="true" class="branding-logo-gefuehl">ge<span aria-hidden="true" class="branding-logo-fuehl">fühl</span></span>
-{%- if include.inner_only %}
+{%- if include.inner_only -%}
 {%- else -%}
 </span>
-{% endif%}
+{%- endif -%}
