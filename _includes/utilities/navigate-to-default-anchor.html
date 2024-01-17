@@ -1,0 +1,43 @@
+<script type="text/javascript">
+    (function () {
+        var disableAutoScroll = false;
+        if (disableAutoScroll) {
+            /* Auto-scroll has been disabled statically. */
+            console.debug("Auto-scroll aborted: Auto-scrolling has been disabled via configuration.")
+            return;
+        }
+
+        const pageAccessedByNavigation = (
+            /* Old API: https://www.w3.org/TR/navigation-timing/#sec-navigation-info-interface */
+            (window.performance.navigation && window.performance.navigation.type === 0 /* 0 = TYPE_NAVIGATE */) ||
+            /* New API: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceNavigationTiming */
+            window.performance
+                .getEntriesByType('navigation')
+                .map((nav) => nav.type)
+                .includes('navigate')
+        );
+
+        /* Only do something if no explicit anchor has been specified. */
+        if (pageAccessedByNavigation && window.location.hash == "") {
+            var delayBeforeScrollInSeconds = 1;
+            setTimeout(function () {
+                /* Abort if the user has already scrolled */
+                if (window.scrollX != 0) {
+                    console.debug("Auto-scroll aborted: User-initiated scrolling has been detected.")
+                    return;
+                }
+
+                var defaultAnchor = document.getElementById("-");
+                if (!defaultAnchor) {
+                    /* Abort if the default anchor does not exist */
+                    console.debug("Auto-scroll aborted: Target anchor not found in document.")
+                    return;
+                }
+
+                defaultAnchor.scrollIntoView(/* alignToTop: */ true);
+            }, delayBeforeScrollInSeconds * 1000);
+        } else {
+            console.debug("Auto-scroll aborted: Not a first-time navigation, or user has explicitly specified a target #anchor.")
+        }
+    })();
+</script>
