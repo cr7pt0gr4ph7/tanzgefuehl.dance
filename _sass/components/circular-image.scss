@@ -1,0 +1,38 @@
+.circular-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 1px solid black;
+    border: none;
+    padding: 0.9rem;
+    box-shadow: 5px 5px 5px 7px rgba(gray, 0.4);
+
+    img,
+    .image {
+        display: block;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        /* Create a subtle soft transition between the image and the white border around it. */
+        box-shadow: 0 0 1px 0 rgba(gray, 0.4);
+        background-color: rgba(gray, 0.4);
+        position: relative;
+        clip-path: fill-box;
+    }
+
+    img {
+        object-fit: cover;
+    }
+
+    .image {
+        background-image: none;
+        background-size: cover;
+        background-position: 50% 50%;
+    }
+}
+
+.team-introduction .circular-image {
+    max-width: 277px;
+    margin-left: auto;
+    margin-right: auto;
+}
