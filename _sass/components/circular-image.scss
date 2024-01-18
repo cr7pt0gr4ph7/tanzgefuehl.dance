@@ -12,11 +12,12 @@
     box-shadow: 5px 5px 5px 7px rgba(gray, 0.4);
 
     &.enlarge-on-hover {
+        --hover-scale: 1.1;
         transform: scale(1);
         transition: transform 0.3s cubic-bezier(0.455, 0.030, 0.515, 0.955);
 
         &:hover {
-            transform: scale(1.1);
+            transform: scale(var(--hover-scale));
         }
     }
 
@@ -27,7 +28,7 @@
         width: 100%;
         border-radius: 50%;
         /* Create a subtle soft transition between the image and the white border around it. */
-        box-shadow: 0 0 1px 0 rgba(gray, 0.4);
+        box-shadow: 0 0 1px 0 rgba(gray, 0.1);
         background-color: rgba(gray, 0.4);
         position: relative;
         clip-path: fill-box;
