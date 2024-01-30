@@ -46,3 +46,19 @@ main {
         }
     }
 }
+
+.first-word {
+    --size-multiplier: 1.16;
+
+    &:first-letter {
+        initial-letter: 2;
+        font-weight: normal;
+    }
+
+    > span:first-child > span:first-child {
+        --resolved-line-height: calc(var(--bs-body-line-height) * var(--bs-body-font-size));
+        line-height: calc(var(--resolved-line-height) * 1);
+        font-size: calc(var(--size-multiplier) * 1em);
+        font-weight: bold;
+    }
+}
