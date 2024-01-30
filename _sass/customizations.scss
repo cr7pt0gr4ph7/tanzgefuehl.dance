@@ -27,3 +27,25 @@ main .section {
     padding-bottom: 1rem;
     margin-bottom: 1rem;
 }
+
+.btn-black {
+    background-color: black;
+    color: white;
+
+    &:hover {
+        background-color: #0e0c0c;
+        color: white;
+    }
+}
+
+.more-info-box {
+    margin-top: 1rem;
+    padding: 1.1rem 1.6rem 0.9rem;
+    display: inline-block;
+    border-radius: 0.5rem;
+    position: relative;
+
+    span {
+        font-weight: 500;
+    }
+}
