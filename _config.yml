@@ -53,6 +53,12 @@ plugins:
 #
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
+
+exclude:
+  - .github/
+  - .vscode/
+
+# The following entries are already excluded by default:
 #
 # exclude:
 #   - .sass-cache/
