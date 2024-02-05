@@ -23,9 +23,9 @@ show_hero_bottom_link: true
                     | Tänze:  {{ teacher.about.dances | join: ', ' | escape_once }}
             | Spezialgebiet: {{ teacher.about.speciality | join: ', ', ' &amp; ' | escape_once }}
                 </p>
-                <p class="narrow-line-spacing" itemprop="description">
+                <div class="narrow-line-spacing" itemprop="description">
                     {{ teacher.about.text | markdownify }}
-                </p>
+                </div>
             </div>
             <div class="col-lg-3 col-md-4 order-md-{{ forloop.index | plus: 1 | modulo: 2 | plus: 1 }}">
                 <div class="circular-image enlarge-on-hover">
