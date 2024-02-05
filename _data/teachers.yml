@@ -1,0 +1,22 @@
+teachers:
+  - id: lukas-waslowski
+    image_url: assets/img/Profile-LukasWaslowski-Square-Full.jpg
+    name:
+      givenName: Lukas
+      familyName: Waslowski
+    contact:
+      email: bonn@tanzgefuehl.dance
+    about:
+      location: Bonn
+      dances:
+        - Standard/Latein
+        - Discofox
+        - Salsa
+        - Bachata
+        - Kizomba
+        - West Coast Swing
+      speciality:
+        - West Coast Swing
+      text: |-
+        Nachdem er in seiner Jugend den Paartanz für sich entdeckte, ist er dafür Feuer und Flamme und mit ansteckender Begeisterung dabei.
+        Sein größte Leidenschaft gilt den &bdquo;Social Dances&rdquo; und Ihrer Community, vor allem dem West Coast Swing.
