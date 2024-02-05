@@ -9,6 +9,9 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 4.3.3"
 
+# Acquire bootstrap to use its SASS sources
+gem "bootstrap", "~> 5.3.2"
+
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 # gem "github-pages", group: :jekyll_plugins
@@ -17,6 +20,7 @@ gem "jekyll", "~> 4.3.3"
 group :jekyll_plugins do
   gem "jekyll-seo-tag", "~> 2.8"
   gem "jekyll-redirect-from", "~> 0.16.0"
+  gem "jekyll-autoprefixer", "~> 1.0"
 end
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -32,3 +36,6 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # Lock `http_parser.rb` gem to `v0.6.x` on JRuby builds since newer versions of the gem
 # do not have a Java counterpart.
 gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
+
+# Required to avoid runtime errors in jekyll-autoprefixer caused by ExecJS 2.8.0 and later
+gem "execjs", "= 2.7.0"

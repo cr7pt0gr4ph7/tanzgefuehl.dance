@@ -45,6 +45,15 @@ defaults:
 plugins:
   - jekyll-seo-tag
   - jekyll-redirect-from
+  - jekyll-autoprefixer
+
+sass:
+  load_paths:
+    - 'gem:bootstrap/assets/stylesheets'
+
+gem_resolver:
+  transform: # Which config paths should be transformed
+    - sass.load_paths
 
 # Exclude from processing.
 # The following items will not be processed, by default.
