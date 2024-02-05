@@ -1,8 +1,0 @@
-<!DOCTYPE html>
-{%- capture _url -%}
-{%- link {{ page.redirect_to }} -%}
-{%- endcapture -%}
-<meta charset="utf-8">
-<title>Redirecting to {{ _url }}</title>
-<meta http-equiv="refresh" content="0; URL={{ _url }}">
-<link rel="canonical" href="{{ _url }}">
