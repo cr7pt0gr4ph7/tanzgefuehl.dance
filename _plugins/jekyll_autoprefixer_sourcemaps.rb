@@ -23,6 +23,13 @@ module AutoprefixerPatch
 
     if !options['only_production'] || Jekyll.env == "production"
       @batch.each do |item|
+        if options['exclude_static_files'] && item.is_a?(Jekyll::StaticFile)
+          # HACK: Exclude static files - this should normally be done by using
+          #       site.pages.each instead of site.each_site_file, but we would
+          #       have to patch/replace even more code for this to work.
+          next
+        end
+
         path = item.destination(@site.dest)
         map_path = "#{path}.map"
 
@@ -49,7 +56,7 @@ module AutoprefixerPatch
             map = nil
           end
 
-          result = AutoprefixerRails.process(css, options)
+          result = AutoprefixerRails.process(css, { 'map' => map }.merge(options))
           file.write(result)
           map_file&.write(result.map)
         ensure
