@@ -49,12 +49,21 @@ module JekyllGemResolver
   def self.transform_config_value(value)
     return value unless value.is_a? String
 
-    if /^gem:(?<gem_name>[^\/]+)(?<relative_path>.*)/ =~ value
-      spec = Gem::Specification.find_by_name(gem_name)
-      result = spec.gem_dir + relative_path
-      Jekyll.logger.warn("Resolved #{value} to #{result}")
-      result
+    result = if /^gem:(?<gem_name>[^:]+):(?<relative_path>.*)/ =~ value
+      resolve_gem(gem_name, "/#{relative_path}")
+    elsif /^gem:(?<gem_name>[^\/]+)(?<relative_path>.*)/ =~ value
+      resolve_gem(gem_name, relative_path)
+    else
+      nil
     end
+
+    Jekyll.logger.info("Resolved #{value} to #{result}") unless result.nil?
+    result
+  end
+
+  def self.resolve_gem(gem_name, relative_path)
+    spec = Gem::Specification.find_by_name(gem_name)
+    spec.gem_dir + relative_path
   end
 
   Jekyll::Hooks.register :site, :after_init do |site|
