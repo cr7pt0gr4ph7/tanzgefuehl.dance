@@ -6,11 +6,11 @@ module JekyllGemResolver
 
   private
 
-  def self.transform_config_node(node, path)
+  def self.transform_config_node(node, path, use_fallbacks = true)
     # Have we arrived at the last segment of the path?
     if path.nil? || path.empty?
       # Special behavior: If this node is an array, behave as if path contains an additional '.*'
-      return transform_config_node(node, ['*']) if node.is_a? Array
+      return transform_config_node(node, ['*'], false) if node.is_a?(Array) && use_fallbacks
 
       # Not an array: Directly process this node
       return transform_config_value(node)
