@@ -56,7 +56,14 @@ module AutoprefixerPatch
             map = nil
           end
 
-          result = AutoprefixerRails.process(css, { 'map' => map }.merge(options))
+          filename = File.basename(path)
+
+          file_options = { 'map' => { 'prev' => map }, 'from' => filename, 'to' => filename }
+            .merge(options)
+            .transform_keys { |key| key.to_sym }
+
+          result = AutoprefixerRails.process(css, file_options)
+          Jekyll.logger.error("Failed to create sourcemap for #{filename}") if write_sourcemaps && result.map.nil?
           file.write(result)
           map_file&.write(result.map)
         ensure
