@@ -21,55 +21,55 @@ module AutoprefixerPatch
       false
     end
 
-    if !options['only_production'] || Jekyll.env == "production"
-      @batch.each do |item|
-        if options['exclude_static_files'] && item.is_a?(Jekyll::StaticFile)
-          # HACK: Exclude static files - this should normally be done by using
-          #       site.pages.each instead of site.each_site_file, but we would
-          #       have to patch/replace even more code for this to work.
-          next
+    return if options['only_production'] && Jekyll.env != "production"
+
+    @batch.each do |item|
+      if options['exclude_static_files'] && item.is_a?(Jekyll::StaticFile)
+        # HACK: Exclude static files - this should normally be done by using
+        #       site.pages.each instead of site.each_site_file, but we would
+        #       have to patch/replace even more code for this to work.
+        next
+      end
+
+      path = item.destination(@site.dest)
+      map_path = "#{path}.map"
+
+      begin
+        file = File.open(path, 'r+')
+        css = file.read
+        file.truncate(0)
+        file.rewind
+
+        if write_sourcemaps && File.exist?(map_path)
+          # If a source map already exists (e.g. because the CSS was generated from SASS files),
+          # read and transform the existing sourcemap.
+          map_file = File.open(map_path, 'r+')
+          map = map_file.read
+          map_file.truncate(0)
+          map_file.rewind
+        elsif write_sourcemaps
+          # Sourcemap does not exist yet, but should be created
+          map_file = File.open(map_path, 'w+')
+          map = true
+        else
+          # No sourcemaps should be written
+          map_file = nil
+          map = nil
         end
 
-        path = item.destination(@site.dest)
-        map_path = "#{path}.map"
+        filename = File.basename(path)
 
-        begin
-          file = File.open(path, 'r+')
-          css = file.read
-          file.truncate(0)
-          file.rewind
+        file_options = { 'map' => { 'prev' => map }, 'from' => filename, 'to' => filename }
+          .merge(options)
+          .transform_keys { |key| key.to_sym }
 
-          if write_sourcemaps && File.exist?(map_path)
-            # If a source map already exists (e.g. because the CSS was generated from SASS files),
-            # read and transform the existing sourcemap.
-            map_file = File.open(map_path, 'r+')
-            map = map_file.read
-            map_file.truncate(0)
-            map_file.rewind
-          elsif write_sourcemaps
-            # Sourcemap does not exist yet, but should be created
-            map_file = File.open(map_path, 'w+')
-            map = true
-          else
-            # No sourcemaps should be written
-            map_file = nil
-            map = nil
-          end
-
-          filename = File.basename(path)
-
-          file_options = { 'map' => { 'prev' => map }, 'from' => filename, 'to' => filename }
-            .merge(options)
-            .transform_keys { |key| key.to_sym }
-
-          result = AutoprefixerRails.process(css, file_options)
-          Jekyll.logger.error("Failed to create sourcemap for #{filename}") if write_sourcemaps && result.map.nil?
-          file.write(result)
-          map_file&.write(result.map)
-        ensure
-          file&.close
-          map_file&.close
-        end
+        result = AutoprefixerRails.process(css, file_options)
+        Jekyll.logger.error("Failed to create sourcemap for #{filename}") if write_sourcemaps && result.map.nil?
+        file.write(result)
+        map_file&.write(result.map)
+      ensure
+        file&.close
+        map_file&.close
       end
     end
 
