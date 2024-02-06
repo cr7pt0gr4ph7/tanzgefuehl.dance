@@ -3,32 +3,34 @@ title: Unser Team
 layout: page-core
 show_hero_bottom_link: true
 ---
-<header class="section">
+<header>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h1>Unser Team</h1>
+                <p class="team-members-lead-paragraph">Wir stellen uns vor!</p>
             </div>
         </div>
     </div>
 </header>
 {% for teacher in site.data.teachers.teachers %}
-<section class="section team-introduction" id="{{ teacher.id }}" itemscope itemtype="https://schema.org/ProfilePage">
+<section class="section team-member" id="{{ teacher.id }}" itemscope itemtype="https://schema.org/ProfilePage">
     <div class="container" itemprop="mainEntity" itemscope itemtype="https://schema.org/Person">
         <div class="row">
             <div class="col-lg-9 col-md-8 order-md-{{ forloop.index | modulo: 2 | plus: 1 }}">
-                <h2 itemprop="name"><span itemprop="givenName">{{ teacher.name.givenName | escape_once }}</span> <span itemprop="familyName">{{ teacher.name.familyName | escape_once }}</span></h2>
-                <p class="lead-paragraph">
-                    Standort: {{ teacher.about.location | escape_once }}
-                    | Tänze:  {{ teacher.about.dances | join: ', ' | escape_once }}
-            | Spezialgebiet: {{ teacher.about.speciality | join: ', ', ' &amp; ' | escape_once }}
+                <h2 class="team-member-name" itemprop="name"><span itemprop="givenName">{{ teacher.name.givenName | escape_once }}</span> <span itemprop="familyName">{{ teacher.name.familyName | escape_once }}</span></h2>
+                <p class="team-member-properties">
+                    <span class="team-member-property-name">Standort:</span> <span class="team-member-property-value">{{ teacher.about.location | escape_once }}</span>
+                    | <span class="team-member-property-info">Tänze:</span> <span class="team-member-property-value">{{ teacher.about.dances | join: ', ' | escape_once }}</span>
+                    | <span class="team-member-property-name">Spezialgebiet:</span> <span class="team-member-property-value">{{ teacher.about.speciality | join: ', ', ' &amp; ' | escape_once
+                    }}</span>
                 </p>
-                <div class="narrow-line-spacing" itemprop="description">
+                <div class="team-member-description" itemprop="description">
                     {{ teacher.about.text | markdownify }}
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 order-md-{{ forloop.index | plus: 1 | modulo: 2 | plus: 1 }}">
-                <div class="circular-image enlarge-on-hover">
+                <div class="team-member-image circular-image enlarge-on-hover">
                     <div class="circular-image-inner">
                         <img itemprop="image" src="{% link {{ teacher.image_url }} %}">
                     </div>

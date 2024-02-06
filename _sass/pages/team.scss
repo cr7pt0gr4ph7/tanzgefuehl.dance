@@ -1,0 +1,46 @@
+.team-members-lead-paragraph {    
+    margin-top: -1.75rem;
+    /* margin-bottom: 0.25rem; */
+    font-size: 1.5rem;
+}
+
+.team-member-name {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    font-weight: 500; // V1 @ 360x740
+    font-size: 1.975rem; // V1 @ 360x740
+}
+
+.team-member-properties {
+    font-size: 1rem;
+    font-size: 1.35rem;
+    line-height: inherit;
+    font-weight: inherit;
+}
+
+.team-member-property-name {
+    font-weight: 400;
+}
+
+.team-member-property-values {
+    font-weight: 400;
+}
+
+.team-member-description {
+
+}
+
+.team-member-image {
+    margin: 0 1.5rem;
+
+    @include media-breakpoint-up(md) {
+        margin: 0;
+    }
+}
+
+.team-member~.team-member {
+    margin-top: 2rem;
+}
