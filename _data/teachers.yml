@@ -18,5 +18,31 @@ teachers:
       speciality:
         - West Coast Swing
       text: |-
-        Nachdem er in seiner Jugend den Paartanz für sich entdeckte, ist er dafür Feuer und Flamme und mit ansteckender Begeisterung dabei.
-        Sein größte Leidenschaft gilt den &bdquo;Social Dances&rdquo; und Ihrer Community, vor allem dem West Coast Swing.
+        Seit er in seiner Jugend den Paartanz für sich entdeckte, ist er dafür Feuer und Flamme und mit ansteckender Begeisterung dabei.
+        Seine größte Leidenschaft gilt den &bdquo;Social Dances&rdquo; und Ihrer Community, allen voran dem West Coast Swing.
+
+  - id: klara-epperlein
+    image_url: assets/img/Profile-KlaraEpperlein-Original-Full.jpg
+    name:
+      givenName: Klara
+      familyName: Epperlein
+    contact:
+      email: aachen@tanzgefuehl.dance
+    about:
+      location: Aachen
+      dances:
+        - Standard/Latein
+        - Discofox
+        - Salsa
+        - Bachata
+        - West Coast Swing
+        - Rock'n'Roll
+        - Boogie Woogie
+        - Tango Argentino
+      speciality:
+        - West Coast Swing
+      text: |-
+        Mit vielen Jahren Lehrerfahrung und immer noch ungebrochener Begeisterung ist sie eine Konstante,
+        die aus der Aachener Tanzszene nicht mehr wegzudenken ist.
+        Nach ihrer Tanzlehrerausbildung war sie schon unter anderem schon auf den Schiffen der AIDA-Flotte unterwegs,
+        um als DJane und Tanzlehrerin den Gästen dort die Freude an der Bewegung zur Musik näherzubringen.
