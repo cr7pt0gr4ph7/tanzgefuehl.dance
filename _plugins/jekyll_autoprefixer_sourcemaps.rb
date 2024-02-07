@@ -23,7 +23,7 @@ module AutoprefixerPatch
 
     # Process all files that were regenerated during this Jekyll build
     @batch.each do |item|
-      options['exclude_static_files'] && item.is_a?(Jekyll::StaticFile)
+      if options['exclude_static_files'] && item.is_a?(Jekyll::StaticFile)
         # HACK: Exclude static files - this should normally be done by using
         #       site.pages.each instead of site.each_site_file, but we would
         #       have to patch/replace even more code for this to work.
@@ -51,12 +51,16 @@ module AutoprefixerPatch
 
       if write_sourcemaps && File.exist?(map_path)
         Jekyll.logger.debug 'Autoprefixer:', "Transforming map: #{map_path}"
+
         map_file = File.open(map_path, 'r+')
         map_options = { 'prev' => map_file.read, 'inline' => false }
+
       elsif write_sourcemaps
         Jekyll.logger.debug 'Autoprefixer:', "Creating new map: #{map_path}"
+
         map_file = File.open(map_path, 'w+')
         map_options = { 'inline' => false }
+
       else
         # No sourcemaps should be written
         map_file = nil
@@ -77,7 +81,7 @@ module AutoprefixerPatch
         map_file.rewind
         map_file.write(result.map)
       elsif write_sourcemaps
-        Jekyll.logger.error("Failed to create sourcemap for #{filename}")
+        Jekyll.logger.error 'Autoprefixer Error:', "Failed to create sourcemap for #{filename} found at path #{path}"
       end
     ensure
       file&.close
