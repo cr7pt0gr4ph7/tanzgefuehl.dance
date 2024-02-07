@@ -25,7 +25,7 @@
     font-weight: 400;
 }
 
-.team-member-property-values {
+.team-member-property-value {
     font-weight: 400;
 }
 
@@ -34,10 +34,11 @@
 }
 
 .team-member-image {
-    margin: 0 1.5rem;
+    margin: 0 calc(1.5rem - var(--shift-due-to-shadow)) 0 calc(1.5rem + var(--shift-due-to-shadow));
 
     @include media-breakpoint-up(md) {
         margin: 0;
+        left: var(--shift-due-to-shadow);
     }
 }
 

@@ -5,6 +5,7 @@
 }
 
 .circular-image {
+    --shift-due-to-shadow: -5px;
     border-radius: 50%;
     border: 1px solid black;
     border: none;
