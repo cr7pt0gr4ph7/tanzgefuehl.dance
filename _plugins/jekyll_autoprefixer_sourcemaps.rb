@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AutoprefixerPatch
   def process
     options = @site.config['autoprefixer'] || {}
@@ -11,9 +13,9 @@ module AutoprefixerPatch
       case options['sourcemaps']
       when 'never', false then false
       when 'always', true then true
+      when 'existing', nil then :transform_existing_only # Default value
       when 'production' then Jekyll.env == 'production'
       when 'development' then Jekyll.env == 'development'
-      when nil then false # Default value
       else
         Jekyll.logger.warn("Ignoring unknown value '#{options['sourcemaps']}' for autoprefixer.sourcemaps. Disabling source map generation instead.")
         false
@@ -23,13 +25,7 @@ module AutoprefixerPatch
 
     # Process all files that were regenerated during this Jekyll build
     @batch.each do |item|
-      if options['exclude_static_files'] && item.is_a?(Jekyll::StaticFile)
-        # HACK: Exclude static files - this should normally be done by using
-        #       site.pages.each instead of site.each_site_file, but we would
-        #       have to patch/replace even more code for this to work.
-        next
-      end
-
+      next unless process_file?(item, options)
       path = item.destination(@site.dest)
       process_file(path, options, write_sourcemaps)
     end
@@ -38,6 +34,13 @@ module AutoprefixerPatch
   end
 
   private
+
+  def process_file?(item, options)
+    return true if item.data['process_with_autoprefixer'] == true
+    return false if options['process_static_files'] == false && item.is_a?(Jekyll::StaticFile)
+    return false if item.data['process_with_autoprefixer'] == false
+    return true
+  end
 
   def process_file(path, options, write_sourcemaps)
     Jekyll.logger.debug 'Autoprefixer:', "Transforming CSS: #{path}"
@@ -54,17 +57,20 @@ module AutoprefixerPatch
 
         map_file = File.open(map_path, 'r+')
         map_options = { 'prev' => map_file.read, 'inline' => false }
+        map_expected = true
 
-      elsif write_sourcemaps
+      elsif write_sourcemaps && write_sourcemaps != :transform_existing_only
         Jekyll.logger.debug 'Autoprefixer:', "Creating new map: #{map_path}"
 
         map_file = File.open(map_path, 'w+')
         map_options = { 'inline' => false }
+        map_expected = true
 
       else
         # No sourcemaps should be written
         map_file = nil
         map_options = nil
+        map_expected = false
       end
 
       file_options = options
@@ -80,7 +86,7 @@ module AutoprefixerPatch
         map_file.truncate(0)
         map_file.rewind
         map_file.write(result.map)
-      elsif write_sourcemaps
+      elsif map_expected
         Jekyll.logger.error 'Autoprefixer Error:', "Failed to create sourcemap for #{filename} found at path #{path}"
       end
     ensure
