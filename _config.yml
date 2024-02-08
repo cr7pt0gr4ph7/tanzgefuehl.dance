@@ -67,6 +67,11 @@ exclude:
   - .github/
   - .vscode/
 
+# Explicitly include for processing.
+include:
+  - _root/
+  - _root/_favicons/
+
 # The following entries are already excluded by default:
 #
 # exclude:
