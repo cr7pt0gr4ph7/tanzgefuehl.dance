@@ -1,4 +1,6 @@
 module SeoTagDropExtensions
+  TITLE_SEPARATOR = " | "
+
   def page_title
     if page["use_full_page_title"]
       @page_title ||= site_title
