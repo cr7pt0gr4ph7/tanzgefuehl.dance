@@ -13,9 +13,12 @@ module SeoTagDropExtensions
         page_title + TITLE_SEPARATOR + site_title
       elsif site_description && site_title
         site_title + TITLE_SEPARATOR + site_tagline_or_description
-      else
+      elsif !page["use_full_page_title"]
         page_title || site_title
+      else
+        site_title
       end
+    end
   end
 end
 
