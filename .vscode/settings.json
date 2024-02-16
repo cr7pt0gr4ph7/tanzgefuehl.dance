@@ -1,0 +1,8 @@
+{
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.wordWrapColumn": 140,
+    "html.format.wrapLineLength": 200,
+    "editor.wordWrap": "bounded",
+    "css.format.spaceAroundSelectorSeparator": true
+}
