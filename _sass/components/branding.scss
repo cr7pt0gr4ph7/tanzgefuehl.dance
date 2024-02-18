@@ -1,4 +1,4 @@
-/* Branding / Logo */
+/* Layout of branding / logo inside the page header */
 
 body {
     --outer-padding: 10px;
@@ -37,6 +37,8 @@ body {
     }
 }
 
+/* Actual branding logo - might replace this with an SVG */
+
 .branding-logo {
     display: block;
     color: #7a0004;
@@ -46,19 +48,48 @@ body {
     font-size: var(--header-font-size);
 }
 
-.branding-logo.branding-logo-inline {
-  display: inline-block;
-  padding-left: 0.2em;
-  padding-right: 0.4em;
-}
+/* "Hero Nav" variation for the logo */
 
 .branding-logo-container .branding-logo {
-  display: block;
-  color: #7a0004;
-  padding-left: 0.2em;
-  padding-right: 0.6em;
-  position: relative;
-  font-size: var(--header-font-size);
+    display: block;
+    color: #7a0004;
+    padding-left: 0.2em;
+    padding-right: 0.6em;
+    position: relative;
+    font-size: var(--header-font-size);
+}
+
+/* "Inline" variation for integrating the logo into a heading text */
+
+.branding-logo.branding-logo-inline {
+    display: inline-block;
+    padding-left: 0.2em;
+    padding-right: 0.4em;
+}
+
+/* "Small" variation for integrating the logo into a run of normal text */
+
+.branding-logo.branding-logo-small,
+.branding-logo-inline.branding-logo-small {
+    font-size: max(1rem, 0.85em);
+
+    a,
+    >span {
+        text-shadow: none !important;
+        font-weight: bold;
+    }
+
+    .branding-logo-t {
+        letter-spacing: calc(-3/24*1em);
+    }
+
+    .branding-logo-anz {
+        letter-spacing: calc(0.2/24*1em);
+    }
+
+    .branding-logo-gefuehl {
+        letter-spacing: calc(0.5/24*1em);
+    }
 }
 
 .branding-logo a,
