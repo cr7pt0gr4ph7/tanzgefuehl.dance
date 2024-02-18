@@ -5,6 +5,44 @@ use_full_page_title: true
 show_hero_bottom_link: true
 scroll_to_default_anchor: false
 ---
+{%- comment -%}
+  &ndash; vom klassischen Gesellschaftstanz, sei es für Hochzeiten oder andere gesellschaftliche Anlässe, über Discofox, Salsa &amp; Co bis hin zu West Coast Swing.
+{%- endcomment -%}
+
+{%- capture introduction_text -%}
+  {:.subtle-strong}
+  Hier bei Tanzgefühl haben wir uns dem Paartanz in seinen verschiedensten Facetten verschrieben
+  Wir bieten **individuellen Unterricht** für Paare und Einzeltänzer, zu 100% ausgerichtet an Ihren individuellen Wünschen und Zielen.
+  Ohne Vertragsbindung oder versteckte Kosten, aber zu 100 Prozent individuell & persönlich.
+{%- endcapture -%}
+
+{%- capture introduction_text -%}
+  Hier bei Tanzgefühl haben wir uns dem Paartanz in seinen verschiedensten Facetten verschrieben
+  -- vom unvergesslichen Erlebnis Hochzeitstanz über die klassischen Gesellschaftstänze
+  bis zu den Trends rund um Discofox, Salsa, West Coast Swing &amp; Co!
+
+  {:.subtle-strong}
+  Wir bieten **individuellen Unterricht** für Paare und Einzeltänzer, zu 100% ausgerichtet an Ihren individuellen Wünschen und Zielen. Direkt bei Ihnen Zuhause oder an einem anderen Wunschort. Ohne Vertragsbindung, ohne versteckten Kosten --- zu 100 Prozent individuell, flexibel und persönlich. Jetzt unverbindlich Angebot einholen!
+{%- endcapture -%}
+
+{%- capture about_dancing_text -%}
+  {:.first-word}
+  <span>T<span>anzen</span></span> ermöglicht es Menschen, sich auf eine einzigartige Weise auszudrücken, die über Worte hinausgeht.
+  Es verbindet Körper, Geist und Seele und schafft eine besondere Verbindung mit Partner*in und Musik.
+  Es ist **Lebensfreude und Energiespender**, **Auszeit vom Alltag** und kulturelle Tradition,
+  intime **Zeit mit dem*der Partner*in** und Raum für **Begegnung und Gemeinschaft**.
+
+  Darüber hinaus hat Tanzen nachweislich positive Auswirkungen auf die physische Gesundheit.
+  Es fördert die Flexibilität, verbessert die Ausdauer und stärkt die Muskeln.
+  Gleichzeitig hat es auch positive Auswirkungen auf die mentale Gesundheit,
+  da es Stress abbauen, die Stimmung heben und das allgemeine Wohlbefinden steigern kann.
+
+  Insgesamt ist Tanzen eine kraftvolle Form der Kommunikation, die Menschen aller Altersgruppen und Hintergründe
+  zusammenbringt.
+  Es ist eine universelle Sprache, die Menschen auf einer tieferen Ebene verbindet und dabei hilft, Freude, Leidenschaft und Emotionen
+  auszudrücken.
+{%- endcapture -%}
+
 <div class="section narrow-section">
   <div class="container">
     <div class="row">
@@ -13,7 +51,7 @@ scroll_to_default_anchor: false
           <span class="first-line">Herzlich Willkommen</span>
           <span class="second-line">bei {% include components/logo.html class="branding-logo branding-logo-inline" %}!</span>
         </h1>
-        <p>Hier bei Tanzgefühl haben wir uns dem Paartanz in seinen verschiedensten Facetten verschrieben.</p>
+        {{ introduction_text | markdownify }}
       </div>
     </div>
   </div>
@@ -21,26 +59,7 @@ scroll_to_default_anchor: false
 <div class="section narrow-section bg-body-secondary">
   <div class="container">
     <div class="row">
-      <div class="md-12">
-        <p class="first-word">
-          <span>T<span>anzen</span></span> ermöglicht es Menschen, sich auf eine einzigartige Weise auszudrücken, die über Worte hinausgeht.
-          Es verbindet Körper, Geist und Seele und schafft eine besondere Verbindung mit Partner*in und Musik.
-          Es ist <strong>Lebensfreude und Energiespender</strong>, <strong>Auszeit vom Alltag</strong> und kulturelle Tradition,
-          intime <strong>Zeit mit dem*der Partner*in</strong> und Raum für <strong>Begegnung und Gemeinschaft</strong>.
-        </p>
-        <p>
-          <span>D<span>arüber</span></span> hinaus hat Tanzen nachweislich positive Auswirkungen auf die physische Gesundheit.
-          Es fördert die Flexibilität, verbessert die Ausdauer und stärkt die Muskeln.
-          Gleichzeitig hat es auch positive Auswirkungen auf die mentale Gesundheit,
-          da es Stress abbauen, die Stimmung heben und das allgemeine Wohlbefinden steigern kann.
-        </p>
-        <p class="first-word-secondary">
-          <span>I<span>nsgesamt</span></span> ist Tanzen eine kraftvolle Form der Kommunikation, die Menschen aller Altersgruppen und Hintergründe
-          zusammenbringt.
-          Es ist eine universelle Sprache, die Menschen auf einer tieferen Ebene verbindet und dabei hilft, Freude, Leidenschaft und Emotionen
-          auszudrücken.
-        </p>
-      </div>
+      <div class="md-12">{{ about_dancing_text | markdownify }}</div>
     </div>
   </div>
 </div>
@@ -51,11 +70,11 @@ scroll_to_default_anchor: false
       <div class="col-lg-6 col-12">
         <div class="circular-image enlarge-on-hover" style="--hover-scale: 1.06">
           <div class="circular-image-inner">
-            <div class="image" style="background-image: url('{% link assets/img/pexels-cottonbro-studio-4972842.jpg %}');">
-            </div>
+            <div class="image" style="background-image: url('{% link assets/img/pexels-cottonbro-studio-4972842.jpg %}');"></div>
           </div>
         </div>
         <div class="col-lg-3 col-md-1"></div>
       </div>
     </div>
   </div>
+</div>
