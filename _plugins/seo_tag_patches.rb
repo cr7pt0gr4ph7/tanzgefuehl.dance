@@ -22,6 +22,19 @@ module SeoTagDropExtensions
       end
     end
   end
+
+  def seo_alternate_name
+    @seo_alternate_name ||= page_seo["alternate_name"]
+  end
 end
 
+module SeoTagJSONLDDropExtensions
+  def alternate_name
+    page_drop.seo_alternate_name
+  end
+  alias_method :alternateName, :alternate_name
+  private :alternate_name
+end
+
+Jekyll::SeoTag::JSONLDDrop.include SeoTagJSONLDDropExtensions
 Jekyll::SeoTag::Drop.prepend SeoTagDropExtensions

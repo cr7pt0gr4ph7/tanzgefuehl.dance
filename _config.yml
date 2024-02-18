@@ -41,6 +41,16 @@ defaults:
       show_footer: true
       scroll_to_default_anchor: true
       enable_spotify: true
+      seo:
+        name: Tanzgefühl | Tanzunterricht in Bonn
+        alternate_name:
+          - Tanzgefühl - Tanzunterricht in Bonn
+          - Tanzgefühl in Bonn
+          - Tanzgefühl Bonn
+          - Tanzgefühl
+          - Tanzgefühl - Tanzunterricht mit Begeisterung
+          - Lukas Waslowski | Tanzgefühl - Tanzunterricht mit Begeisterung
+          - Lukas Waslowski | Tanzgefühl
 
 plugins:
   - jekyll-seo-tag
