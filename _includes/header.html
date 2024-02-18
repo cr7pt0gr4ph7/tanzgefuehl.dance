@@ -4,16 +4,16 @@
         <div class="hero-container image-1"></div>
         <div class="branding-logo-container">
             <h1 class="branding-logo">
-                <a href="/" aria-label="Tanzgefühl">
+                <a href="{% link index.html %}" aria-label="Tanzgefühl">
                     {%- include components/logo.html inner_only=true class="" -%}
                 </a>
             </h1>
             <ul class="compact-nav-items">
                 <li><a class="mai&#x006C;-link" href="mai&#x006C;to&#x003A;%63%6F%6E%74%61%63%74REMOVETHISTEXTBEFORESENDING&#64;%74%61%6E%7A%67%65%66%75%65%68%6C&#46;%64%61%6E%63%65?subject=Allgemeine%20Anfrage">Kontakt</a></li>
-                <li><a href="{{ site.baseurl }}/impressum">Impressum</a></li>
-                <li><a href="{{ site.baseurl }}/datenschutz">Datenschutz</a></li>
-                <li><a href="{{ site.baseurl }}/privatstunden">Privatstunden</a></li>
-                <li><a href="{{ site.baseurl }}/workshops">Workshops</a></li>
+                <li><a href="{% link impressum.html %}">Impressum</a></li>
+                <li><a href="{% link datenschutz.html %}">Datenschutz</a></li>
+                <li><a href="{% link tanzen/anlass/privatstunden.html %}">Privatstunden</a></li>
+                <li><a href="{% link workshops.html %}">Workshops</a></li>
             </ul>
         </div>
         {%- if page.show_hero_bottom_link -%}
