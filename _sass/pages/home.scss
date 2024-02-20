@@ -3,15 +3,19 @@
     flex-direction: column;
 }
 
-.landing-page-lead-paragraph {
-    font-size: 24px;
-    line-height: 1.8;
-    text-wrap: balance;
-    margin-bottom: 2.5rem;
+@include media-breakpoint-up(sm) {
+    .landing-page-lead-paragraph {
+        font-size: 24px;
+        line-height: 1.8;
+        text-wrap: balance;
+        margin-bottom: 2.5rem;
+    }
 }
 
-.landing-page-lead-text {
-    font-size: 17px;
+@include media-breakpoint-up(sm) {
+    .landing-page-lead-text {
+        font-size: 17px;
+    }
 }
 
 .links-with-arrows a {
