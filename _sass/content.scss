@@ -11,12 +11,21 @@ main {
 }
 
 main {
-    box-shadow:
-        0 10px 5px -5px black,
-        inset 0 10px 5px -5px black;
-    clip-path: inset(-20px 0px 0px 0px);
-    padding-top: 1em;
-    padding-bottom: 1em;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 20px;
+        box-shadow:
+            0 10px 5px -5px black,
+            inset 0 10px 5px -5px black;
+        clip-path: inset(-20px 0px 0px 0px);
+    }
+
     min-height: 90vh;
 
     --bs-body-line-height: 1.9;
@@ -35,7 +44,7 @@ main {
             color: inherit;
         }
     }
-    
+
     .very-subtle-strong {
         strong {
             color: inherit;

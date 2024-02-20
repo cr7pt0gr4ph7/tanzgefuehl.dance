@@ -25,7 +25,16 @@
 main .section {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    margin-bottom: 1rem;
+}
+
+main article .section:first-child {
+    --additional-padding-top: 1rem;
+    padding-top: 2rem;
+}
+
+main article .section:last-child {
+    --additional-padding-bottom: 1rem;
+    padding-bottom: 3rem;
 }
 
 .btn-black {
