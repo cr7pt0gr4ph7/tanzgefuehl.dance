@@ -12,13 +12,25 @@
     }
 }
 
-@include media-breakpoint-down(sm) {
-    .landing-page-lead-text li {
-        margin-bottom: 1rem;
+.landing-page-lead-text li {
+    margin-bottom: 1rem;
 
-        &:last-child {
-            margin-bottom: 0;
-        }
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up(sm) {
+        margin-bottom: 0.5rem;
+    }
+
+    @include media-breakpoint-up(md) {
+        margin-bottom: 0;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .landing-page-lead-text li {
+        margin-bottom: 0.5rem;
     }
 }
 
