@@ -1,0 +1,55 @@
+.landing-page-lead-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.landing-page-lead-paragraph {
+    font-size: 24px;
+    line-height: 1.8;
+    text-wrap: balance;
+    margin-bottom: 2.5rem;
+}
+
+.landing-page-lead-text {
+    font-size: 17px;
+}
+
+.links-with-arrows a {
+    color: inherit;
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+        color: #000000;
+        text-decoration: underline;
+    }
+
+    &::before {
+        content: "►\0000A0";
+    }
+}
+
+.subtle-background {
+    content: "";
+    background: linear-gradient(to right, white 0%, ghostwhite 15%, ghostwhite 85%, white 100%);
+}
+
+.faded-background-image {
+    background:
+        radial-gradient(rgba(255, 255, 255, var(--fade-opacity)), #ffffff),
+        linear-gradient(to top, white, transparent) 50% 100% / 100% var(--faded-border-bottom-width) no-repeat,
+        linear-gradient(to bottom, white, transparent) 50% 0% / 100% var(--faded-border-width) no-repeat,
+        linear-gradient(to right, white, transparent) 0% 50% / var(--faded-border-width) 100% no-repeat,
+        linear-gradient(to left, white, transparent) 100% 50% / var(--faded-border-width) 100% no-repeat,
+        var(--image-url) var(--image-position, 50% 50%) / cover no-repeat;
+
+    --fade-opacity: 0.86;
+    --faded-border-width: min(100px, 10vw);
+    --faded-border-bottom-width: 20px;
+
+
+    &.section {
+        padding-bottom: 2rem;
+        margin-bottom: 0;
+    }
+}

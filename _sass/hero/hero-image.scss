@@ -11,12 +11,17 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url("../img/JumpIntoAir-Red-Full.jpg");
+    background-image: var(--image-url);
     background-repeat: no-repeat;
     container-type: size;
-    background-position: 51% 10%;
+    background-position: var(--image-position);
     background-size: cover;
     z-index: -10;
+}
+
+.image-1 {
+    --image-url: url("../img/JumpIntoAir-Red-Full.jpg");
+    --image-position: 51% 10%;
 }
 
 .hero-container::after {
