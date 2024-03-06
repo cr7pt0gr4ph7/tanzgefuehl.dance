@@ -27,13 +27,26 @@ redirect_from:
   maßgeschneidertes Angebot zu erstellen.
 {%- endcapture -%}
 
-{%- capture pricing_text -%}
-  Honorar für den Unterricht: 70 € für 60 min; im Paket 50 € für 60 min.
+{%- capture special_offer_text -%}
+  {:.subtle-strong.special-offer.bg-body-secondary.mx-2.mx-sm-5.mx-lg-1.my-5.my-lg-0}
+  **Unser limitiertes Kennenlernangebot -- nur noch 3 von 10 Terminen verfügbar!**
+  70 Euro für 90 Minuten Unterricht bei Ihnen Zuhause, inklusive Fahrtkosten.
+  Nur bei Buchung bis Ende März.
+  <a class="mai&#x006C;-link" style="text-decoration: none; font-weight: 500; color: inherit;"
+  href="mai&#x006C;to&#x003A;%63%6F%6E%74%61%63%74REMOVETHISTEXTBEFORESENDING&#64;%74%61%6E%7A%67%65%66%75%65%68%6C&#46;%64%61%6E%63%65?subject=Privatstunden-Anfrage:%20Kennenlernangebot">Jetzt
+  buchen!</a>
+{%- endcapture -%}
 
-  Innerhalb von Bonn sind die Fahrtkosten bereits pauschal enthalten, für ferner liegende Orte fällt gegebenenfalls
+{%- capture pricing_text -%}
+  Das normale Unterrichtshonorar beträgt 70 Euro für 60 min, bei Buchung mehrerer Stunden bieten wir auch gerne Paketpreise an.
+
+  Innerhalb von Bonn und der näheren Umgebung (u.a. Bornheim, Bad Godesberg, Bad Honnef, Beuel, Bonn, Hennef, Königswinter, Sankt Augustin, Siegburg) sind die Fahrtkosten bereits pauschal enthalten, für ferner liegende Orte fällt gegebenenfalls
   ein Aufpreis für Fahrzeit und -strecke an.
 
-  Der Unterricht ist sowohl einzeln als auch paarweise möglich, bei mehreren Paaren fällt gegebenenfalls ein Aufpreis an.
+  Der Unterricht ist sowohl einzeln als auch paarweise sowie in Gruppen möglich.
+  Für das zweite und jedes weitere Paar kommen lediglich jeweils 5 Euro hinzu.
+  Falls sie sich z.B. zu drei Paaren zusammenfinden, zahlen Sie für einen **privaten, komplett individuellen Tanzkurs**
+  mit 4 Terminen umgerechnet lediglich 54 Euro pro Person, und damit sogar weniger als für einen gleich langen Kurs in einer Tanzschule!
 {%- endcapture -%}
 
 <div class="section">
@@ -56,8 +69,13 @@ redirect_from:
           </div>
         </div>
       </div>
-      <div class="col-lg-8">
-        {{ introduction_text | markdownify }}
+      <div class="col-lg-8 d-lg-flex flex-lg-column">
+        <div>
+          {{ introduction_text | markdownify }}
+        </div>
+        <div class="flex-grow-1 d-lg-flex flex-lg-column justify-content-lg-center">
+          {{ special_offer_text | markdownify }}
+        </div>
       </div>
     </div>
   </div>
