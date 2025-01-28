@@ -10,6 +10,7 @@ body {
     --header-font-size: 60px;
     --header-font-size: min(60px, (100vw - 22px) / 5.1151);
     --header-bubble-size: calc(5.1151 * var(--header-font-size));
+    --header-bubble-padding: 1rem;
 }
 
 .branding-logo-container {
@@ -28,6 +29,20 @@ body {
     width: var(--header-bubble-size);
     height: var(--header-bubble-size);
     transition: left 0.3s ease-in-out, top 0.4s ease-in-out;
+}
+
+/* Ensure that inline content is wrapped when it reaches the edge of the circle */
+.branding-logo-container .shape-outside-left {
+  content: '';
+  float: left;
+  height:100%;
+  width: 50%;
+  shape-outside: radial-gradient(farthest-side at right, transparent calc(100% - var(--header-bubble-padding)), #fff 0);
+}
+
+.branding-logo-container .shape-outside-right {
+  float: right;
+  shape-outside: radial-gradient(farthest-side at left,  transparent calc(100% - var(--header-bubble-padding)), #fff 0);
 }
 
 @media (min-width: 576px) {
