@@ -46,11 +46,14 @@
 .links-with-arrows a {
     color: #111111;
     font-weight: 500;
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 
     &:hover {
         color: #000000;
         text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
     }
 
     &::before {
