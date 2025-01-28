@@ -1,0 +1,79 @@
+---
+title: Privatstunden
+layout: page-core
+show_hero_bottom_link: true
+permalink: /hochzeitstanz/
+redirect_from:
+  - /hochzeitstanz
+---
+{%- capture lead_text -%}
+  Bestens vorbereitet auf den schönsten Tag im Leben!
+{%- endcapture -%}
+
+{%- capture introduction_text -%}
+  Sie planen die eigene Hochzeit und alles ist bereit &ndash; außer dem obligatorischen Hochzeitstanz? Wir helfen kompetent weiter!
+  Egal ob Sie bereits Tanzerfahrung mitbringen oder neu einsteigen, wir helfen Ihnen dabei 
+
+  **Gut zu wissen**: Auf Wunsch unterrichten wir Sie auch gerne in der Gruppe, z.B. zusammen mit Ihren Trauzeugen, Eltern, Schwiegereltern.
+  Es muss **schnell gehen**? Schreiben Sie uns eine Mail, und wir melden uns noch am gleichen Tag bei Ihnen mit einem Terminvorschlag!
+{%- endcapture -%}
+
+{%- capture special_offer_text -%}
+  {:.subtle-strong.special-offer.bg-body-secondary.mx-2.mx-sm-5.mx-lg-1.my-5.my-lg-0}
+  Unterricht für Paare: 25 Euro pro Person für 60 Minuten Unterricht bei Ihnen Zuhause, inklusive Fahrtkosten.
+  <a href="#buchung" style="text-decoration: none; font-weight: 500; color: inherit;">Jetzt buchen!</a>
+{%- endcapture -%}
+
+{%- capture pricing_text -%}
+  Das normale Unterrichtshonorar beträgt 50 Euro für 60 min.
+
+  Innerhalb von Bonn und der näheren Umgebung (u.a. Bornheim, Bad Godesberg, Bad Honnef, Beuel, Bonn, Hennef, Königswinter, Sankt Augustin, Siegburg, Troisdorf) sind die Fahrtkosten bereits pauschal enthalten, für ferner liegende Orte fällt gegebenenfalls
+  ein Aufpreis für Fahrzeit und -strecke an.
+
+  Der Unterricht ist sowohl einzeln als auch paarweise sowie in Gruppen möglich.
+  Für das zweite und jedes weitere Paar kommen lediglich jeweils 10 Euro hinzu.
+  Falls sie sich z.B. zu drei Paaren zusammenfinden, zahlen Sie für einen **privaten, komplett individuellen Tanzkurs**
+  mit 4 Terminen umgerechnet lediglich 45 Euro pro Person, und damit sogar weniger als für einen gleich langen Kurs in einer Tanzschule!
+{%- endcapture -%}
+
+<div class="section" id="privatstunden">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 mb-lg-2">
+        <h1>Hochzeits&shy;tanz</h1>
+        <p class="lead-paragraph">
+          {{ lead_text }}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb-lg-0 mb-3">
+        <div class="circular-image-container mb-lg-0 mb-3 px-lg-0 px-4">
+          <div class="circular-image enlarge-on-hover" style="max-width: 400px; margin-left: auto; margin-right: auto;">
+            <div class="circular-image-inner">
+              <div class="image" style="background-image: url('{% link assets/img/pexels-tima-miroshnichenko-5814404.jpg %}'); background-size: 150%; background-position: 50% 35%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 d-lg-flex flex-lg-column">
+        <div>
+          {{ introduction_text | markdownify }}
+        </div>
+        <div class="flex-grow-1 d-lg-flex flex-lg-column justify-content-lg-center">
+          {{ special_offer_text | markdownify }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include content/sections/buchung-button.html %}
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {{ pricing_text | markdownify }}
+      </div>
+    </div>
+  </div>
+</div>
