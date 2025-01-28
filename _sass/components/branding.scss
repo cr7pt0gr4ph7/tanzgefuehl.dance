@@ -10,7 +10,7 @@ body {
     --header-font-size: 60px;
     --header-font-size: min(60px, (100vw - 22px) / 5.1151);
     --header-bubble-size: calc(5.1151 * var(--header-font-size));
-    --header-bubble-padding: 1rem;
+    --header-bubble-padding: 0.2rem;
 }
 
 .branding-logo-container {
@@ -19,7 +19,7 @@ body {
     aspect-ratio: 1 / 1;
     background-color: rgba(128, 128, 128, 0.6);
     text-align: center;
-    padding-top: calc(1.35598333333 * var(--header-font-size));
+    /*padding-top: calc(1.35598333333 * var(--header-font-size));*/
     border: 1px solid rgba(180, 180, 180, 0.6);
     box-shadow: 1px 1px 3px rgba(128, 128, 128, 0.9);
     /* Positioning */
@@ -32,8 +32,8 @@ body {
 }
 
 /* Ensure that inline content is wrapped when it reaches the edge of the circle */
-.branding-logo-container .shape-outside-left {
-  content: '';
+.branding-logo-container .shape-outside-left,
+.branding-logo-container .shape-outside-right {
   float: left;
   height:100%;
   width: 50%;
@@ -57,8 +57,8 @@ body {
 .branding-logo {
     display: block;
     color: #7a0004;
-    padding-left: 0.2em;
-    padding-right: 0.6em;
+    /* padding-left: 0.2em; */
+    /* padding-right: 0.6em; */
     position: relative;
     font-size: var(--header-font-size);
 }
@@ -68,8 +68,8 @@ body {
 .branding-logo-container .branding-logo {
     display: block;
     color: #7a0004;
-    padding-left: 0.2em;
-    padding-right: 0.6em;
+    /* padding-left: 0.2em; */
+    /* padding-right: 0.6em; */
     position: relative;
     font-size: var(--header-font-size);
 }
