@@ -39,6 +39,10 @@
 
 @include media-breakpoint-up(sm) {
     .landing-page-lead-text {
+        font-size: 24px;
+    }
+
+    .landing-page-lead-list {
         font-size: 17px;
     }
 }
