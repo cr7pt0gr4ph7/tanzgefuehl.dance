@@ -1,6 +1,6 @@
 :root {
     --navcard-background: #c3c3c3;
-    --navcard-border: 1px solid #0f0f0f;
+    --navcard-border: 1px solid #c3c3c3;
     --navcard-overlay-hidden: rgba(0, 0, 0, 0.0);
     --navcard-overlay-visible: rgba(0, 0, 0, 0.8);
     --navcard-color: #ffffff;
@@ -70,6 +70,7 @@
     text-wrap: nowrap;
     overflow: hidden;
     color: var(--navcard-color);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
 .nav-card-title span {
