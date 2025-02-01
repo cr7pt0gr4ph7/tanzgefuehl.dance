@@ -42,6 +42,7 @@
 .nav-card-background {
     background-color: var(--navcard-background);
     background-image: var(--bg-image);
+    background-position: var(--bg-position);
     background-size: cover;
     position: absolute;
     top: 0px;
